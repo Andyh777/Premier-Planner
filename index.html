@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <meta content="width=device-width,initial-scale=1" name=viewport>
+        <title>
+            Valorant Planner
+        </title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+<body>
+<div class = "row">
+    <div class="column left">
+        <center>
+        <h1>
+            Maps
+        </h1>
+        </center>
+        <div class="mapButtons">
+        <button onclick="changeMap('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/ascent.png','Ascent')">Ascent</button>
+        <button onclick="changeMap('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/bind.png','Bind')">Bind</button>
+        <button onclick="changeMap('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/breeze.png','Breeze')">Breeze</button>
+        <button onclick="changeMap('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/haven.webp','Haven')">Haven</button>
+        <button onclick="changeMap('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/lotus.webp','Lotus')">Lotus</button>
+        <button onclick="changeMap('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/split.webp','Split')">Split</button>
+        <button onclick="changeMap('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/sunset.webp','Sunset')">Sunset</button>
+        <script>
+            function changeMap(newMap, mapName){
+                let img = document.querySelector("#map");
+                img.setAttribute("src", newMap);
+                img.crossOrigin="anonymous"
+                document.getElementById("mapName").innerHTML = mapName;
+                
+                img.onload = function() {
+                    var canvas = document.querySelector("canvas"); 
+                    var context = canvas.getContext('2d');
+                    let draggableElems = document.querySelectorAll('.draggable');
+                    let draggies = []
+                    for ( let draggableElem of draggableElems ) {
+                        draggableElem.remove();
+                    }
+                    context.clearRect(0, 0, 1024, 1024);
+                    context.drawImage( img, 0, 0 );
+                }
+            }
+        </script>
+        </div>
+    <h1>
+        <center>
+            Tools
+        </center>
+        <div class="toolButtons">
+        <button onclick="clearDrawings()">Clear Drawings</button>
+        <button onclick="saveButton()">Save</button>
+        <input type="color" id="favcolor" value="#000000">
+        <script>
+            function saveButton() {
+            let data = canvas.toDataURL("imag/png")
+            let a = document.createElement("a")
+            a.href = data
+            a.download = "image.png"
+            a.click()
+            }
+        </script>
+        <script>
+            function clearAgents() {
+                let draggableElems = document.querySelectorAll('.draggable');
+                let draggies = []
+                for ( let draggableElem of draggableElems ) {
+                    draggableElem.remove();
+                }
+            }
+        </script>
+        <script>
+            function clearDrawings() {
+                var canvas = document.querySelector("canvas"); 
+                var context = canvas.getContext('2d');
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                let img = document.querySelector("#map");
+                context.drawImage( img, 0, 0 );
+            }
+        </script>
+        </div>
+    </h1>
+    </div>
+    <div class="column middle">
+            <center>
+                <h1 id="mapName" style ="font-style: bold;">None Selected</h1>
+                <canvas id="canvas" width="1024" height="1024"><img id="map" src=""/></canvas>
+                <script src ="website.js"></script>
+                <p id="icons">
+                    <button onclick="clearAgents()" class="clearAgents" style="float: left;padding: 10px;
+                    border-radius: 10px;width: 25%;margin:5px;background-color: bisque;">Clear Agents</button>
+                </p>
+            </center>
+            
+    </div>
+    <div class="column right">
+        <center>
+            <h1>
+                Agents
+            </h1>
+        </center>
+        <div class="iconButtons">
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Brimstone_icon.webp')">Brimstone</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Phoenix_icon.webp')">Phoenix</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Sage_icon.webp')">Sage</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Sova_icon.webp')">Sova</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Viper_icon.webp')">Viper</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Cypher_icon.webp')">Cypher</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Reyna_icon.webp')">Reyna</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Killjoy_icon.webp')">Killjoy</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Breach_icon.webp')">Breach</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Omen_icon.webp')">Omen</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Jett_icon.webp')">Jett</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Raze_icon.webp')">Raze</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Skye_icon.webp')">Skye</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Yoru_icon.webp')">Yoru</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Astra_icon.webp')">Astra</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/KAYO_icon.webp')">KAYO</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Chamber_icon.webp')">Chamber</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Neon_icon.webp')">Neon</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Fade_icon.webp')">Fade</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Harbor_icon.webp')">Harbor</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Gekko_icon.webp')">Gekko</button>
+        <button onclick="newIcon('https://raw.githubusercontent.com/Andyh777/valoplanner-images/d1602e8fe69d5a75968f9fb5292c697c08df16eb/proj1/Deadlock_icon.webp')">Deadlock</button>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/draggabilly/3.0.0/draggabilly.pkgd.min.js" integrity="sha512-hbEWVzVt2yK7kQmJ1NZirxxO0NPtE4W09fT4f9Emem/n0rMPFHlLbuLcUcLNrtUGWGoQ8qGvKDVJnRRuCzjeZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            function newIcon(imgName) {
+                let draggableElems = document.querySelectorAll('.draggable');
+                let draggies = []
+                
+                if (draggableElems.length <= 9) {
+                    let newIcon = new Image();
+                    newIcon.src = imgName;
+                    newIcon.onload = function() {
+                        newIcon.className = "draggable";
+                        document.getElementById("icons").appendChild(newIcon);
+                        let draggableElems = document.querySelectorAll('.draggable');
+                        let draggies = []
+                        for ( let draggableElem of draggableElems ) {
+                            let draggie = new Draggabilly( draggableElem );
+                            draggies.push( draggie );
+                        }
+                    }
+                } else {
+                    window.alert("Too Many Agents!")
+                }
+            }
+        </script>
+    </div>
+</div>
+</body>
+</html>

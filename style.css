@@ -1,0 +1,113 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: #cccccc;
+  }
+  figure {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  figure > img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+
+.draggable {
+  border-style: ridge;
+  margin: 15px;
+  border-width: 2px;
+  border-radius: 20px;
+  float: right;
+}
+
+h1 + h2 {
+  margin-top: -1rem;
+}
+
+
+.mapButtons button {
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  display: inline-block; 
+  background-color: aliceblue;
+  font-weight: bold;
+  
+}
+
+.iconButtons button {
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%; 
+  display: inline-block; 
+  background-color: aliceblue;
+  font-weight: bold;
+  
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none;
+}
+
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+canvas {
+  background: hsl(0, 0%, 50%);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  width: 20%;
+  background-color: #808080;
+  margin: 1px;
+  border-radius: 10px;
+  height: 50%;
+}
+
+.right {
+  width: 20%;
+  float: right;
+  background-image: linear-gradient(hsl(0, 0%, 50%), hsl(0, 0%, 65%));
+  margin: 1px;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.middle {
+  float: middle;
+  width: 55%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.toolButtons button {
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  display: inline-block;
+  background-color: aliceblue;
+  font-weight: bold;
+}
+
+.icons p {
+  background-color: gray !important;
+}
